@@ -1,50 +1,52 @@
 import { Heart, Trash } from "lucide-react";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
+import { removeProducts } from "../redux/cartRedux";
 import { userRequest } from "../requestMethod";
 import { useNavigate } from "react-router-dom";
 import Navbar2 from "../components/Navbar2";
+import zIndex from "@mui/material/styles/zIndex";
 
-const products = [
-  {
-    id: 1,
-    name: "Nike Air Force 1 07 LV8",
-    href: "#",
-    price: "₹47,199",
-    originalPrice: "₹48,900",
-    discount: "5% Off",
-    color: "Orange",
-    size: "8 UK",
-    imageSrc:
-      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/54a510de-a406-41b2-8d62-7f8c587c9a7e/air-force-1-07-lv8-shoes-9KwrSk.png",
-  },
-  {
-    id: 2,
-    name: "Nike Blazer Low 77 SE",
-    href: "#",
-    price: "₹1,549",
-    originalPrice: "₹2,499",
-    discount: "38% off",
-    color: "White",
-    leadTime: "3-4 weeks",
-    size: "8 UK",
-    imageSrc:
-      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e48d6035-bd8a-4747-9fa1-04ea596bb074/blazer-low-77-se-shoes-0w2HHV.png",
-  },
-  {
-    id: 3,
-    name: "Nike Air Max 90",
-    href: "#",
-    price: "₹2219 ",
-    originalPrice: "₹999",
-    discount: "78% off",
-    color: "Black",
-    imageSrc:
-      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd17b420-b388-4c8a-aaaa-e0a98ddf175f/dunk-high-retro-shoe-DdRmMZ.png",
-  },
-];
+// const products = [
+//   {
+//     id: 1,
+//     name: "Nike Air Force 1 07 LV8",
+//     href: "#",
+//     price: "₹47,199",
+//     originalPrice: "₹48,900",
+//     discount: "5% Off",
+//     color: "Orange",
+//     size: "8 UK",
+//     imageSrc:
+//       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/54a510de-a406-41b2-8d62-7f8c587c9a7e/air-force-1-07-lv8-shoes-9KwrSk.png",
+//   },
+//   {
+//     id: 2,
+//     name: "Nike Blazer Low 77 SE",
+//     href: "#",
+//     price: "₹1,549",
+//     originalPrice: "₹2,499",
+//     discount: "38% off",
+//     color: "White",
+//     leadTime: "3-4 weeks",
+//     size: "8 UK",
+//     imageSrc:
+//       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e48d6035-bd8a-4747-9fa1-04ea596bb074/blazer-low-77-se-shoes-0w2HHV.png",
+//   },
+//   {
+//     id: 3,
+//     name: "Nike Air Max 90",
+//     href: "#",
+//     price: "₹2219 ",
+//     originalPrice: "₹999",
+//     discount: "78% off",
+//     color: "Black",
+//     imageSrc:
+//       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd17b420-b388-4c8a-aaaa-e0a98ddf175f/dunk-high-retro-shoe-DdRmMZ.png",
+//   },
+// ];
 
 export default function Cart2() {
   const KEY = process.env.REACT_APP_STRIPE;
@@ -52,6 +54,7 @@ export default function Cart2() {
   console.log(cart);
   const [stripeToken, setStripeToken] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onToken = (token) => {
     setStripeToken(token);
@@ -73,6 +76,11 @@ export default function Cart2() {
     stripeToken && makeRequest();
   }, [stripeToken, navigate, cart.total]);
 
+  const handleRemove = (productIdx) => {
+    console.log(productIdx);
+    dispatch(removeProducts({ productIdx }));
+  };
+
   return (
     <>
       <Navbar2 />
@@ -91,8 +99,8 @@ export default function Cart2() {
                 Items in your shopping cart
               </h2>
               <ul role="list" className="divide-y divide-gray-200">
-                {cart.products.map((product, productIdx) => (
-                  <div key={product._id} className="">
+                {cart.products.map((product, index) => (
+                  <div key={index} className="">
                     <li className="flex py-6 sm:py-6 ">
                       <div className="flex-shrink-0">
                         <img
@@ -162,6 +170,7 @@ export default function Cart2() {
                         <button
                           type="button"
                           className="flex items-center space-x-1 px-2 py-1 pl-0"
+                          onClick={() => handleRemove(index)}
                         >
                           <Trash size={12} className="text-red-500" />
                           <span className="text-xs font-medium text-red-500">
