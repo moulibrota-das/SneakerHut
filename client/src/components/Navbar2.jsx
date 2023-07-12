@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const menuItems = [
   {
     name: "Logout",
-    href: "#",
+    href: "/logout",
   },
 ];
 
