@@ -22,7 +22,9 @@ app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
-
+app.use("/", (req, res) => {
+  res.send("welcome to ecommerce api");
+});
 app.listen(4000, () => {
   console.log("server started");
 });
