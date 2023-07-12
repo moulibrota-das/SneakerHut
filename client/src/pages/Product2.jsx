@@ -25,7 +25,7 @@ export default function Product2() {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:4000/api/products/find/${id}`
+          `https://ecommerce-api-production-74f2.up.railway.app/api/products/find/${id}`
         );
         setProduct(res.data);
         setSize(res.data.size[0]);

@@ -23,8 +23,8 @@ const Products = ({ cat, filters, sort }) => {
       try {
         const res = await axios.get(
           cat
-            ? `http://localhost:4000/api/products?category=${cat}`
-            : `http://localhost:4000/api/products`
+            ? `https://ecommerce-api-production-74f2.up.railway.app/api/products?category=${cat}`
+            : `https://ecommerce-api-production-74f2.up.railway.app/api/products`
         );
         setProducts(res.data);
         console.log("Products.jsx", res.data);
