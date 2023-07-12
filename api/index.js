@@ -9,6 +9,7 @@ const authRoute = require("./routes/auth");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const stripeRoute = require("./routes/stripe");
+const port = process.env.PORT || 4000;
 
 dotenv.config();
 
@@ -25,6 +26,6 @@ app.use("/api/checkout", stripeRoute);
 app.use("/", (req, res) => {
   res.send("welcome to ecommerce api");
 });
-app.listen(4000, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log("server started");
 });
