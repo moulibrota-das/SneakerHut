@@ -12,7 +12,7 @@ export default function ProductItem2({ item }) {
           className="object-cover  w-full rounded-md  md:h-[300px] lg:h-[300px]"
         />
         <div className="p-4">
-          <h1 className="inline-flex items-center text-lg font-semibold">
+          <h1 className="inline-flex items-center text-md font-medium">
             {item.title}
           </h1>
           {/* <p className="mt-3 text-sm text-gray-600">
