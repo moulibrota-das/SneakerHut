@@ -25,19 +25,19 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    img: "https://images.pexels.com/photos/1522381/pexels-photo-1522381.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     title: "SPORT SHOES",
     cat: "sport",
   },
   {
     id: 2,
-    img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    img: "https://images.unsplash.com/photo-1586525198428-225f6f12cff5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
     title: "CASUAL SHOES",
     cat: "casual",
   },
   {
     id: 3,
-    img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    img: "https://images.pexels.com/photos/15482074/pexels-photo-15482074/free-photo-of-stylish-man-tying-shoes.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     title: "FORMAL SHOES",
     cat: "formal",
   },

@@ -3,16 +3,18 @@ import { mobile } from "../responsive";
 import { Link } from "react-router-dom";
 const Container = styled.div`
   flex: 1;
-  margin: 3px;
-  height: 70vh;
+  margin: 0;
+  height: auto;
+  ${"" /* width: 380px; */}
   position: relative;
 `;
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
+  border-radius: 6px;
   object-fit: cover;
-  ${mobile({ height: "20vh" })}
+  ${mobile({ height: "30vh" })}
 `;
 
 const Info = styled.div`
@@ -34,6 +36,7 @@ const Title = styled.h1`
 
 const Button = styled.button`
   border: none;
+  border-radius: 6px;
   padding: 10px;
   background-color: white;
   color: gray;
@@ -43,15 +46,17 @@ const Button = styled.button`
 
 const CategoryItem = ({ item }) => {
   return (
-    <Container>
-      <Link to={`/products/${item.cat}`}>
-        <Image src={item.img} />
-        <Info>
-          <Title>{item.title}</Title>
-          <Button>SHOP NOW</Button>
-        </Info>
-      </Link>
-    </Container>
+    <>
+      <Container>
+        <Link to={`/products/${item.cat}`}>
+          <Image src={item.img} />
+          <Info>
+            <Title>{item.title}</Title>
+            <Button>SHOP NOW</Button>
+          </Info>
+        </Link>
+      </Container>
+    </>
   );
 };
 

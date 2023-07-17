@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 0 auto;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -7,4 +7,5 @@ body {
 
 code {
   font-family: "Poppins", sans-serif;
+  font-size: medium;
 }

@@ -5,9 +5,10 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
-  width: 100%;
+width: 100%;
+
   height: 100vh;
-  display flex;
+   display flex;
   position: relative;
   overflow: hidden;
   ${mobile({ height: "30vh" })};

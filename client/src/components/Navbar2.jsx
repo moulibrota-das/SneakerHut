@@ -87,7 +87,7 @@ export default function Navbar2() {
         {user && (
           <Link to="/cart">
             <div className="mx-2 ">
-              <Badge badgeContent={quantity} color="primary" variant="dot">
+              <Badge badgeContent={quantity} color="primary">
                 <ShoppingCartOutlinedIcon className="h-8 w-8" />
               </Badge>
             </div>

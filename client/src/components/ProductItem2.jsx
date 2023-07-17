@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function ProductItem2({ item }) {
   console.log(item);
   return (
-    <div className="rounded-md shadow-xl">
+    <div className="rounded-md shadow-xl" key={item._id}>
       <Link to={`/product/${item._id}`}>
         <img
           src={item.img}

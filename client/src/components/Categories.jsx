@@ -5,9 +5,12 @@ import CategoryItem from "./CategoryItem";
 
 const Container = styled.div`
   display: flex;
-  padding: 20px;
+  gap: 1.5rem;
+  padding: 32px;
+  margin: 1rem auto;
+  max-width: 80rem;
   justify-content: space-between;
-  ${mobile({ padding: "0px", flexDirection: "column" })}
+  ${mobile({ padding: "1rem", flexDirection: "column" })}
 `;
 
 const Categories = () => {
