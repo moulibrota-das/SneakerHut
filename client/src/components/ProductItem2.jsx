@@ -6,19 +6,17 @@ export default function ProductItem2({ item }) {
   return (
     <div className="rounded-md shadow-xl" key={item._id}>
       <Link to={`/product/${item._id}`}>
-        <img
-          src={item.img}
-          alt="Laptop"
-          className="object-cover  w-full rounded-md  md:h-[300px] lg:h-[300px]"
-        />
+        <div className="h-[300px] w-full">
+          <img
+            src={item.img}
+            alt="Laptop"
+            className="object-cover rounded-md w-full h-[300px]"
+          />
+        </div>
         <div className="p-4">
           <h1 className="inline-flex items-center text-md font-medium">
             {item.title}
           </h1>
-          {/* <p className="mt-3 text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
-          debitis?
-        </p> */}
 
           <div className="mt-3 flex items-center space-x-2">
             <span className="block text-sm font-semibold">Colors : </span>

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 function Announcement() {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
-      document.getElementById("announcement").classList.add("opacity-0");
+      document.getElementById("announcement").classList.add("hidden");
     }, 4000);
   }, []);
 
